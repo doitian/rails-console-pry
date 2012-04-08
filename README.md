@@ -2,6 +2,8 @@
 
 Run Rails 3 console using [pry][] without adding it to Gemfile.
 
+    gem install rails-console-pry
+
 Use `-r` to add global gems before loading `Bundler`, e.g., run it in Rails root directory:
 
     rails-console-pry -r pry-doc -r awesome_print
