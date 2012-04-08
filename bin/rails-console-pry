@@ -27,11 +27,7 @@ ARGV.unshift "console"
 APP_PATH = File.expand_path('config/application')
 require APP_PATH
 
-module Rails
-  class Console
-    IRB = ::Pry
-  end
-end
+require 'pry-rails'
 
 if ARGV.include?('-h') || ARGV.include?('--help')
   at_exit do

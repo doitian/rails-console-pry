@@ -14,6 +14,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "me@iany.me"
   gem.authors = ["Ian Yang"]
   gem.add_runtime_dependency "pry", ">= 0"
+  gem.add_runtime_dependency "pry-rails", ">= 0"
   gem.executables = ['rails-console-pry']
 end
 Jeweler::RubygemsDotOrgTasks.new
