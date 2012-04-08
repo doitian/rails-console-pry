@@ -2,6 +2,8 @@
 
 Run Rails 3 console using [pry][] without adding it to Gemfile.
 
+If you want to add [pry][] in your Rails app Gemfile and replace the IRB in console, use [pry-rails][] instead.
+
 ## Installation ##
 
     gem install rails-console-pry
@@ -42,3 +44,4 @@ Copyright (c) 2012 Ian Yang. See LICENSE.txt for
 further details.
 
 [pry]: http://pry.github.com/
+[pry-rails]: https://github.com/rweng/pry-rails
