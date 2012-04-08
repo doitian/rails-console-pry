@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "rails-console-pry"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ian Yang"]
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "bin/rails-console-pry",
+    "lib/rails-console-pry.rb",
     "rails-console-pry.gemspec"
   ]
   s.homepage = "http://github.com/doitian/rails-console-pry"
