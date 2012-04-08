@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'pry'
+
+remaining_args = []
+require_next = false
+ARGV.each do |arg|
+  if ['-r', '--require'].include?(arg)
+    require_next = true
+  elsif require_next
+    require arg
+    require_next = false
+  else
+    remaining_args << arg
+  end
+end
+
+ARGV.replace remaining_args
+
+if ARGV.first && !ARGV.first.index("-") && env = ARGV.shift
+  ENV['RAILS_ENV'] = %w(production development test).detect {|e| e =~ /^#{env}/} || env
+end
+
+ARGV.unshift "console"
+
+APP_PATH = File.expand_path('config/application')
+require APP_PATH
+
+module Rails
+  class Console
+    IRB = ::Pry
+  end
+end
+
+if ARGV.include?('-h') || ARGV.include?('--help')
+  at_exit do
+    opts = OptionParser.new { |opt| opt.on '-r', '--require', 'require a Ruby script at startup' }
+    puts opts.to_s.lines.to_a[1..-1].join
+  end
+end
+
+require 'rails/commands'
