@@ -2,6 +2,8 @@
 
 require 'rubygems'
 require 'pry'
+require 'pry-rails/version'
+pry_rails_path = Gem.loaded_specs['pry-rails']
 
 remaining_args = []
 require_next = false
@@ -27,7 +29,12 @@ ARGV.unshift "console"
 APP_PATH = File.expand_path('config/application')
 require APP_PATH
 
-require 'pry-rails'
+if ::Rails::VERSION::MAJOR >= 3
+  class ::Rails::Console
+  end
+end
+
+require File.join(pry_rails_path.full_gem_path, 'lib', 'pry-rails.rb')
 
 if ARGV.include?('-h') || ARGV.include?('--help')
   at_exit do
