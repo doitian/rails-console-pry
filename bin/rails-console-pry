@@ -34,7 +34,8 @@ if ::Rails::VERSION::MAJOR >= 3
   end
 end
 
-require File.join(pry_rails_path.full_gem_path, 'lib', 'pry-rails.rb')
+$: << File.join(pry_rails_path.full_gem_path, 'lib')
+require 'pry-rails'
 
 if ARGV.include?('-h') || ARGV.include?('--help')
   at_exit do
